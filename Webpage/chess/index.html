@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="chess.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body {padding: 0; margin: 0;} </style>
+</head>
+<body>
+  <h2 id="b_s">Black Standing:  </h2>
+  <h2 id="w_s">White Standing:  </h2>
+  <button onclick="newGame()">New Game</button>
+  <h2>Move History </h2>
+  <h4 id="mh"></h4>
+</body>
+
+<script>
+var deviceID = "2a0022001247343438323536";
+var accessToken = "0d682b52fcda6b47156553ec7c00a39f98449203";
+var varName = "outputGrid";
+
+function newGame(newValue) {
+	var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + "newGame" + "/";
+        $.post( requestURL, { params: "5", access_token: accessToken });
+        document.getElementById("mh").innerText = "";
+      }
+</script>
+</html>
